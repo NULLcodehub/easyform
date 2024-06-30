@@ -14,11 +14,5 @@ const connectDB=async ()=>{
 
 module.exports=connectDB
 
-// const mongo=mongoose.connect(process.env.MONGO_URI)
 
-// if(mongo){
-//     console.log('database connected')
-// }else{
-//     console.log("database not connected")
-// }
 
