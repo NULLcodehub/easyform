@@ -6,6 +6,7 @@ const connectDB=require('./db')
 
 const userLogin=require('./controllers/userLoginController')
 const userRegister=require('./controllers/userRergisterController')
+const formControl=require('./controllers/formController')
 
 
 const app=express()
@@ -26,6 +27,9 @@ app.get('/',(req,res)=>{
 app.post('/register',userRegister)
 
 app.post('/login',userLogin)
+
+app.post('/project/form',formControl)
+
 
 
 
