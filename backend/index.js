@@ -7,6 +7,7 @@ const connectDB=require('./db')
 const userLogin=require('./controllers/userLoginController')
 const userRegister=require('./controllers/userRergisterController')
 const formControl=require('./controllers/formController')
+const projectController=require('./controllers/projectController')
 
 
 const app=express()
@@ -28,7 +29,11 @@ app.post('/register',userRegister)
 
 app.post('/login',userLogin)
 
+app.post('/create/project',projectController)
+
 app.post('/project/form',formControl)
+
+
 
 
 
