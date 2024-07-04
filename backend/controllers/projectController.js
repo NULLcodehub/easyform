@@ -1,7 +1,7 @@
 const shortID=require('short-uuid')
 
 const Project=require('../models/projectModel')
-
+const FormSubmission=require('../models/formSubmissionModel')
 
 const projectController=async (req,res)=>{
     
@@ -23,7 +23,11 @@ const projectController=async (req,res)=>{
                 
             }
             else{
+                
                 await projectOk.save()
+                
+                const form=new FormSubmission({project_id:projectOk._id,projectname:projectOk.projectname,form_data:{}})
+                await form.save()
                 res.send(projectOk)
             }
         }
