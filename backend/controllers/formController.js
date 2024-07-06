@@ -12,7 +12,7 @@ const formControl=async (req,res)=>{
 
     const {formData}=req.body;
     const {project_id_user,form_api_key_url}=req.params
-    console.log(formData)
+    // console.log(formData)
 
     try {
 
@@ -31,14 +31,16 @@ const formControl=async (req,res)=>{
                     submmitOk.form_data.push(formData)
                     
                     await submmitOk.save()
-                    sendEmail('souravsaha.prgmr@gmail.com','easyform','massage form easymail')
+                    const data= await submmitOk.form_data.at(-1)
+                    sendEmail('mohimbhowmick69@gmail.com',data)
+                    console.log(submmitOk.form_data.at(-1))
                     res.send(submmitOk)
                 }
                 
             }else{
                 res.send('api key did not match')
             }
-            // const form
+          
              
         
 
@@ -50,10 +52,6 @@ const formControl=async (req,res)=>{
         
     }
 
-
-    // console.log(form_api_key)
-    // console.log(project_id)
-    // res.send(formData)
 
 
 }
