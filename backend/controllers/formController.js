@@ -1,5 +1,11 @@
 const Project=require('../models/projectModel')
 const FormSubmission=require('../models/formSubmissionModel')
+const sendEmail=require('../mail')
+
+
+
+
+
 
 const formControl=async (req,res)=>{
     // res.json("from formcontroler")
@@ -25,6 +31,7 @@ const formControl=async (req,res)=>{
                     submmitOk.form_data.push(formData)
                     
                     await submmitOk.save()
+                    sendEmail('souravsaha.prgmr@gmail.com','easyform','massage form easymail')
                     res.send(submmitOk)
                 }
                 
