@@ -10,7 +10,7 @@ const Login = () => {
                     <div className='div-right'>
                         
                         <div>
-
+                            loginjs
                         </div>
                         
                     </div>

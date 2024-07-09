@@ -1,0 +1,18 @@
+nav li{
+    display: inline;
+    @apply px-3 py-2 mx-3 rounded-md;
+    font-weight: 400;
+    color: rgb(33, 33, 33);
+
+    
+}
+.li-1{
+    background: #f3ff74;
+    
+}
+.li-2{
+    border:2px solid #f3ff74;
+    background:#f3ff7429;
+    color: #eaff05;
+    
+}
