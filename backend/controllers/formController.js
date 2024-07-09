@@ -32,7 +32,7 @@ const formControl=async (req,res)=>{
                     
                     await submmitOk.save()
                     const data= await submmitOk.form_data.at(-1)
-                    sendEmail('mohimbhowmick69@gmail.com',data)
+                    sendEmail('souravsaha.prgmr@gmail.com',data)
                     console.log(submmitOk.form_data.at(-1))
                     res.send(submmitOk)
                 }
