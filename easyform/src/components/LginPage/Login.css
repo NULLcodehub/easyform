@@ -1,0 +1,36 @@
+.div-right{
+    background: #f3ff74;
+}
+.div-right-in-text{
+    border: 1px solid #cad400;
+    @apply rounded-md h-32 w-8/12 my-4 p-5 text-left;
+    
+
+}
+
+.input-feild{
+    @apply my-2 w-full h-12 rounded-md px-4;
+    border-bottom:2px solid #f3ff74;
+    
+
+}
+
+.signin-btn{
+    background: #f3ff74;
+    @apply py-2 px-4 my-2 rounded-md
+}
+
+.left-section p{
+  font-family: "Playwrite FR Trad", cursive;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  color: #f3ff74;
+  text-shadow: 
+  1px 1px 0px black, 
+  -1px 1px 0px black,
+  1px -1px 0px black, 
+  -1px -1px 0px black; 
+
+}
+

@@ -7,7 +7,6 @@ export default{
         "10px":"10px",
         "13px":"13px",
         "15px":"15px",
-
         "20px":"20px",
         '30px':'30px',
         '40px':'40px',
@@ -24,6 +23,9 @@ export default{
         '500px':'500px',
         '600px':'600px',
         '700px':'700px',
+      },
+      height:{
+        "80vh":"80vh"
       }
     },
   },

@@ -1,5 +1,6 @@
 import React from 'react';
 import './Navbar.css'
+import {Link} from 'react-router-dom'
 
 const Navbar = () => {
     return (
@@ -8,13 +9,13 @@ const Navbar = () => {
                 <nav>
                     <section className=' flex justify-between px-5 py-6'>
                         <div>
-                            <h1>Brand Name</h1>
+                            <p>Form Flow</p>
                         </div>
 
                         <div>
-                            <ul className=''>
-                                <li className='li-1'><button>Get Strated</button></li>
-                                <li className='li-2'><button>Sign in</button></li>
+                            <ul >
+                                <Link to='/signup'><button><li className='li-1'>Get Strated</li></button></Link>
+                                <Link to='/login'><button><li className='li-2'>Sign in</li></button></Link>
                             </ul>
                         </div>
                     </section>
