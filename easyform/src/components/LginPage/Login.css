@@ -2,18 +2,29 @@
     background: #f3ff74;
 }
 .div-right-in-text{
-    border: 1px solid #cad400;
+    /* border: 1px solid #cad400; */
     @apply rounded-md h-32 w-8/12 my-4 p-5 text-left;
     
-
+    
 }
 
 .input-feild{
     @apply my-2 w-full h-12 rounded-md px-4;
     border-bottom:2px solid #f3ff74;
     
-
 }
+
+.div-right-in-text h1{
+    @apply text-20px font-bold;
+    
+    color:#122a35;
+}
+.div-right-in-text p{
+    @apply my-3 font-medium;
+    
+    color:#21343cda;
+}
+
 
 .signin-btn{
     background: #f3ff74;

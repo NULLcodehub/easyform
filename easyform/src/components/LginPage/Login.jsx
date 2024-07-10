@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import './Login.css'
 import { Link } from 'react-router-dom';
+import axios, { AxiosError } from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 import useDebounce from '../../Hooks/useDebounce';
 
@@ -11,28 +15,75 @@ const Login = () => {
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
     const emailDebounce=useDebounce(email,500)
-    const passwordDebounce=useState(password,500)
+    const passwordDebounce=useDebounce(password,500)
 
     // console.log(emailDebounce)
+    // console.log(passwordDebounce)
+    const navigate=useNavigate()
+
+
+    const notify=(msg)=> toast(msg)
+
+    const formHandler=async(e)=>{
+        e.preventDefault()
+        let errmsg;
+        try {
+            
+            
+            if(emailDebounce || passwordDebounce){
+                const response=await axios.post(`http://localhost:4000/login`,{
+                        email:emailDebounce,
+                        password:passwordDebounce
+                    })
+                    
+                    if(response){
+                        
+                        notify('Login successfull')
+                        setEmail('')
+                        setPassword('')
+                        navigate('/user')
+
+                    }
+            }else{
+                notify('Email and Password required')
+                console.log('email and password required')
+            }
+
+            
+            
+        } catch (error) {
+            notify(error.response.data)
+            console.log(error.response)
+            
+        }
+
+    }
+
+
 
     return (
         
         <>
             <main className='flex'>
                 <section className='hidden md:block right-section md:w-6/12 h-screen p-5'>
-                    <div className='div-right w-full rounded-md h-80vh flex justify-center items-center '>
+                    <div className='div-right w-full rounded-md h-90vh flex justify-center items-center '>
                         
                         <div className=' w-full '>
         	                <center>
                                 <div className="div-right-in-text ">
-                                    <p>hello world</p>
+                                    <h1>Free for everyone</h1>
+                                    <p>Form flow is free for everyone.No hidden charge and it easy to use</p>
+
                                 </div>
                                 <div className="div-right-in-text">
-                                    <p>hello world 2</p>
+                                    <h1>Get your website form data at you mail</h1>
+                                    <p>No more intregration of backend for you small business web from .Get your massages directly at your business mail</p>
                                 </div>
                                 <div className="div-right-in-text">
-                                    <p>hello world 3</p>
+                                    <h1>All submissions in one place</h1>
+                                    <p>You don't need to go dig down to find your old mails.you can find all your form flow mail in our dashboard </p>
                                 </div>
+                                
                             </center>
                         </div>
                         
@@ -45,7 +96,7 @@ const Login = () => {
                     <div className='flex justify-center items-center h-screen w-full'>
                         <div className='w-9/12 md:w-7/12 '>
                         <p className='text-xl md:text-40px text-center mb-6 '>Form Flow</p>
-                            <form action="">
+                            <form action="" onSubmit={formHandler}>
                                
                                     <input type="text"
                                         className='input-feild'
@@ -70,7 +121,7 @@ const Login = () => {
                             </form>
                         </div>
                     </div>
-
+                    <ToastContainer/>
                 </section>
             </main>
         </>

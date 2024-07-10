@@ -19,12 +19,12 @@ const userLogin=async (req,res)=>{
             const userOk= await User.findOne({email})
 
             if(!userOk){
-                res.send('email does not exists')
+                res.status(400).send('email does not exists')
             }else{
                 const passOk =await bcrypt.compare(password,userOk.password)
-                console.log(passOk)
+                
                 if (!passOk){
-                    res.send('wrong password')
+                    res.status(400).send('wrong password')
                 }else{
                     res.send({token:token(userOk._id,userOk.username,userOk.email)})
                 }
