@@ -21,7 +21,7 @@ function App() {
           <Route path='/signup' element={<Signup/>}/>
         </Route>
 
-        <Route path='/user' element={<UserLayout/>}>
+        <Route path='/user/:userID' element={<UserLayout/>}>
 
         </Route>
 

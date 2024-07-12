@@ -10,13 +10,14 @@ nav li{
     
 }
 .li-1{
-    background: #f3ff74;
+    background: #20453A;
+    color: white;
     
 }
 .li-2{
-    border:2px solid #f3ff74;
-    background:#f3ff7429;
-    color: #c8d205;
+    border:2px solid #20453A;
+    background:#23433985;
+    color: #20453A;
     
     
 }
@@ -25,10 +26,10 @@ nav p{
     font-optical-sizing: auto;
     font-weight: 700;
     font-style: normal;
-    color: #f3ff74;
-    text-shadow: 
+    color: #20453A;
+    /* text-shadow: 
     0.5px 0.5px 0px black, 
     -0.5px 0.5px 0px black,
     0.5px -0.5px 0px black, 
-    -0.5px -0.5px 0px black; 
+    -0.5px -0.5px 0px black;  */
 }

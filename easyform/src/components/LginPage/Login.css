@@ -1,5 +1,5 @@
 .div-right{
-    background: #f3ff74;
+    background: #20453A;
 }
 .div-right-in-text{
     /* border: 1px solid #cad400; */
@@ -10,25 +10,25 @@
 
 .input-feild{
     @apply my-2 w-full h-12 rounded-md px-4;
-    border-bottom:2px solid #f3ff74;
+    border-bottom:2px solid #20453A;
     
 }
 
 .div-right-in-text h1{
     @apply text-20px font-bold;
     
-    color:#122a35;
+    color:white;
 }
 .div-right-in-text p{
     @apply my-3 font-medium;
     
-    color:#21343cda;
+    color:white;
 }
 
 
 .signin-btn{
-    background: #f3ff74;
-    @apply py-2 px-4 my-2 rounded-md
+    background: #20453A;
+    @apply py-2 px-4 my-2 rounded-md text-white;
 }
 
 .left-section p{
@@ -36,12 +36,12 @@
   font-optical-sizing: auto;
   font-weight: 800;
   font-style: normal;
-  color: #f3ff74;
-  text-shadow: 
+  color: #20453A;
+  /* text-shadow: 
   1px 1px 0px black, 
   -1px 1px 0px black,
   1px -1px 0px black, 
-  -1px -1px 0px black; 
+  -1px -1px 0px black;  */
 
 }
 

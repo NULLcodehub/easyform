@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './Login.css'
 import { Link } from 'react-router-dom';
 import axios, { AxiosError } from 'axios';
@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 
 import useDebounce from '../../Hooks/useDebounce';
+import { AuthContext } from '../../context/AuthContext';
 
 
 
@@ -17,6 +18,8 @@ const Login = () => {
     const emailDebounce=useDebounce(email,500)
     const passwordDebounce=useDebounce(password,500)
 
+    const {login}=useContext(AuthContext)
+
     // console.log(emailDebounce)
     // console.log(passwordDebounce)
     const navigate=useNavigate()
@@ -24,9 +27,9 @@ const Login = () => {
 
     const notify=(msg)=> toast(msg)
 
-    const formHandler=async(e)=>{
+    const formHandler = async (e)=>{
         e.preventDefault()
-        let errmsg;
+        
         try {
             
             
@@ -38,22 +41,30 @@ const Login = () => {
                     
                     if(response){
                         
-                        notify('Login successfull')
-                        setEmail('')
-                        setPassword('')
-                        navigate('/user')
+                        // notify('Login successfull')
+                        // setEmail('')
+                        // setPassword('')
+
+                        // console.log(response.data.token)
+                        // localStorage.setItem(response.data)
+                        login(response.data.token)
+                        // navigate('/user')
 
                     }
             }else{
                 notify('Email and Password required')
-                console.log('email and password required')
+                // console.log('email and password required')
+                setEmail('')
+                setPassword('')
             }
 
             
             
         } catch (error) {
             notify(error.response.data)
-            console.log(error.response)
+            // console.log(error.response)
+            setEmail('')
+            setPassword('')
             
         }
 
