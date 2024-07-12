@@ -8,22 +8,30 @@ import Signup from './components/SignupPage/Signup'
 import HomeLayout from './components/Layouts/HomeLayout'
 import Home from './components/Home/Home'
 
-function App() {
- 
+import { AuthContext } from './context/AuthContext'
+import { useContext } from 'react'
 
+
+function App() {
+
+  const {isAuth,tokenData}=useContext(AuthContext)
+ 
+  console.log(tokenData)
+  
   return (
     <>
       <Routes>
-
+      
         <Route path='/' element={<HomeLayout/>} >
           <Route index element={<Home/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/signup' element={<Signup/>}/>
-        </Route>
-
+        </Route>        
+      
         <Route path='/user/:userID' element={<UserLayout/>}>
 
         </Route>
+      
 
       </Routes>
     </>

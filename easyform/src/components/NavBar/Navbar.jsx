@@ -1,6 +1,8 @@
 import React ,{useContext}from 'react';
 import './Navbar.css'
 import {Link} from 'react-router-dom'
+import { AiOutlineLogout } from "react-icons/ai";
+
 import { AuthContext } from '../../context/AuthContext';
 
 const Navbar = () => {
@@ -24,7 +26,7 @@ const Navbar = () => {
 
                             {isAuth &&
                                 <ul>
-                                    <button onClick={logout}>Logout</button>
+                                   <li><button onClick={logout} className=''><AiOutlineLogout className='w-6 h-6'/></button></li> 
                                 </ul>
                             }
                             
