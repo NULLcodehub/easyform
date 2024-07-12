@@ -43,18 +43,18 @@ export const AuthProvider=({children})=>{
         const decodeToken=jwtDecode(token)
         setTokenData(decodeToken)
         // console.log(tokenData)
-        const userID=tokenData.id;
-        navigate(`/user/${userID}`)
+        // const userID= tokenData.id;
+        navigate(`/user/${decodeToken.id}`)
     }
 
     const logout=()=>{
         localStorage.removeItem('token')
         setIsAuth(false)
         setTokenData(null)
+        
 
     }
     
-
 
     return(
 

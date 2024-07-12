@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import './Login.css'
 import { Link } from 'react-router-dom';
-import axios, { AxiosError } from 'axios';
+import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
@@ -27,7 +27,7 @@ const Login = () => {
 
     const notify=(msg)=> toast(msg)
 
-    const formHandler = async (e)=>{
+    const formHandler =async(e)=>{
         e.preventDefault()
         
         try {
@@ -43,13 +43,10 @@ const Login = () => {
                         
                         // notify('Login successfull')
                         // setEmail('')
-                        // setPassword('')
-
-                        // console.log(response.data.token)
-                        // localStorage.setItem(response.data)
-                        login(response.data.token)
-                        // navigate('/user')
-
+                        // setPassword('')                        
+                        const token=response.data.token
+                        login(token)
+                        
                     }
             }else{
                 notify('Email and Password required')
