@@ -23,12 +23,20 @@ const Modal = ({isOpen,isClose}) => {
                     <form action="">
                         <label htmlFor="projectName">Project Name:</label><br />
                         <input type="text"
-
-                        
+                    
                         />
 
+                        <input type="text" />
 
                     </form>
+                </div>
+                <div className='mt-5 w-full bg-green-950 rounded-xl h-32 modal-info'>
+
+
+                </div>
+
+                <div className='flex justify-end relative top-16'>
+                    <button className='modal-btn'>Create project</button>
                 </div>
                 
                     
