@@ -16,7 +16,7 @@ function App() {
 
   const {isAuth,tokenData}=useContext(AuthContext)
  
-  console.log(tokenData)
+  // console.log(tokenData)
   
   return (
     <>

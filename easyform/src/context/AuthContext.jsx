@@ -51,7 +51,7 @@ export const AuthProvider=({children})=>{
         localStorage.removeItem('token')
         setIsAuth(false)
         setTokenData(null)
-        
+        navigate('/')
 
     }
     
