@@ -7,4 +7,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background: #0000005c;
+}
+
+.modal input{
+    @apply w-full py-2 my-2 px-3 rounded-md;
+    border:1px solid rgb(195, 195, 195);
+    
 }

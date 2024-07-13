@@ -25,7 +25,8 @@ export default{
         '700px':'700px',
       },
       height:{
-        "90vh":"90vh"
+        "90vh":"90vh",
+        "65vh":"65vh"
       }
     },
   },
