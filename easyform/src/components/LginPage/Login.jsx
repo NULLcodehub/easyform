@@ -114,7 +114,7 @@ const Login = () => {
 
                                     />
                                     <br />
-                                    <input type="text"
+                                    <input type="password"
                                         className='input-feild'
                                         placeholder='password'
                                         value={password}
