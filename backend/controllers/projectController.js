@@ -7,7 +7,7 @@ const projectController=async (req,res)=>{
     
     const {projectname,user_id}=req.body;
 
-    
+
 
     try{
         
