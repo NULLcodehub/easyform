@@ -5,6 +5,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { MdOutlineCancel } from "react-icons/md";
 import { AuthContext } from '../../context/AuthContext';
+import { ProjectContext } from '../../context/ProjectListContext';
+
 import useDebounce from '../../Hooks/useDebounce';
 
 import axios from 'axios';
@@ -18,9 +20,11 @@ const Modal = ({isOpen,isClose}) => {
     const notify=(msg)=> toast(msg)
 
     const {tokenData}=useContext(AuthContext)
-    console.log(tokenData.id)
+    // console.log(tokenData.id)
 
-    console.log('from modal')
+    const {addProjectData}=useContext(ProjectContext)
+
+    // console.log('from modal')
     if (!isOpen) return null;
 
 
@@ -39,12 +43,16 @@ const Modal = ({isOpen,isClose}) => {
 
                 })
 
+                addProjectData(response.data)
                 console.log(response)
+                setProjectName('')
+                isClose()
             }
 
 
             
         } catch (error) {
+            console.log(error)
             notify(error.response.data)
             
         }
@@ -66,7 +74,7 @@ const Modal = ({isOpen,isClose}) => {
                 </div>
 
                 <div className='mt-5'>
-                    <form action="" onClick={handelProjectForm}>
+                    <form action="" onSubmit={handelProjectForm}>
                         <label htmlFor="projectName">Project Name:</label><br />
                         <input type="text"
                         value={projectName}
@@ -80,7 +88,7 @@ const Modal = ({isOpen,isClose}) => {
                     </div>
 
                     <div className='flex justify-end relative top-16'>
-                        <button className='modal-btn'>Create project</button>
+                        <button className='modal-btn' type='submit'>Create project</button>
                     </div>
 
 
