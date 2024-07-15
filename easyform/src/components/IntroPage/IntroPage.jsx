@@ -3,10 +3,13 @@ import './IntroPage.css'
 
 const IntroPage = () => {
     return (
-        <div className='intropage h-screen float-right w-10/12 '>
-            into page
+        <section className=' h-screen float-right w-10/12 '>
             
-        </div>
+            <div className='bg-white h-5/6 mx-5 my-5 intropage'>
+
+            </div>
+            
+        </section>
     );
 };
 

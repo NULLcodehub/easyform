@@ -32,8 +32,8 @@ const FormInfo =  ({loadProjectData}) => {
                     <h1 className='text-2xl font-semibold uppercase'>{projectname}</h1>
 
                     <div className=' flex justify-normal items-end mt-6 pb-2  gap-6'>
-                        <button onClick={visiablehandelerIntregration} >Integraion</button>
-                        <button onClick={visiablehandelerCodeExample}>Code example</button>
+                        <button onClick={visiablehandelerIntregration} className={`${visiableIntre && 'border-b-2 border-green-700'} py-2 px-2`} >Integraion</button>
+                        <button onClick={visiablehandelerCodeExample} className={`${visiableCode && 'border-b-2  border-green-700'} py-2 px-2`}>Code example</button>
                     </div>
                 </section>
 
