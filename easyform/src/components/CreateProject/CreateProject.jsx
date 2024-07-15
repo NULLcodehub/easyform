@@ -5,8 +5,9 @@ import { IoAdd } from "react-icons/io5";
 import Modal from '../Modal/Modal';
 
 import { ProjectContext } from '../../context/ProjectListContext';
-import { Link } from 'react-router-dom';
+
 import FormInfo from '../FormInfo/FormInfo';
+import IntroPage from '../IntroPage/IntroPage';
 
 
 const CreateProject = () => {
@@ -15,6 +16,9 @@ const CreateProject = () => {
 
     const [loadProjectData,setLoadProjectData]=useState({})
     const {projectData}=useContext(ProjectContext)
+
+
+    const [isData,setIsData]=useState(false)
     // console.log(projectData)
     // const handleModalMount=()=>{
     //     setMountComnent(true)
@@ -42,6 +46,8 @@ const CreateProject = () => {
 
     const loadData= async (project)=>{
         await setLoadProjectData(project)
+
+        setIsData(true)
 
     }
     
@@ -78,8 +84,12 @@ const CreateProject = () => {
                 </section>
 
                 <section >
+                    {
+                        isData ? <FormInfo loadProjectData={loadProjectData} /> : <IntroPage/>
+
+                    }
                     
-                    <FormInfo loadProjectData={loadProjectData} />
+                    
 
                 </section>
             </main>
