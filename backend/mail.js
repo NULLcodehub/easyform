@@ -14,7 +14,7 @@ const sendEmail = async (recipientEmail,formData) => {
     secure:false,
     auth: {
       user: process.env.GMAIL_EMAIL,
-      pass: "",
+      pass: "009988776655iissaa??@@;",
     },
   });
 

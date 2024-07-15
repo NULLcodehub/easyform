@@ -1,6 +1,7 @@
 const Project=require('../models/projectModel')
 const FormSubmission=require('../models/formSubmissionModel')
 const sendEmail=require('../mail')
+const User=require('../models/userModel')
 
 
 
@@ -13,26 +14,30 @@ const formControl=async (req,res)=>{
     const {formData}=req.body;
     const {project_id_user,form_api_key_url}=req.params
     // console.log(formData)
+    console.log(project_id_user,form_api_key_url)
 
     try {
 
-        const {_id,form_api_key}=await Project.findById(project_id_user)
-
+        const {_id,form_api_key,user_id}=await Project.findById(project_id_user)
+        
+        console.log(user_id)
+        
         if (!_id){
             res.send('invalid id')
         }else{
-            
+            const {email} =await User.findById(user_id)
+           
             if(form_api_key === form_api_key_url){
                 // console.log('api key')
-
+                // console.log("ture")
+                // console.log(_id)
                 const submmitOk=await FormSubmission.findOne({project_id:_id})
-                // console.log(submmitOk)
+                console.log("submitok",submmitOk)
                 if(submmitOk){
                     submmitOk.form_data.push(formData)
-                    
                     await submmitOk.save()
                     const data= await submmitOk.form_data.at(-1)
-                    sendEmail('souravsaha.prgmr@gmail.com',data)
+                    sendEmail(email,data)
                     console.log(submmitOk.form_data.at(-1))
                     res.send(submmitOk)
                 }

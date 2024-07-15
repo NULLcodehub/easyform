@@ -8,6 +8,7 @@ import Signup from './components/SignupPage/Signup'
 import HomeLayout from './components/Layouts/HomeLayout'
 import Home from './components/Home/Home'
 
+
 import { AuthContext } from './context/AuthContext'
 import { useContext } from 'react'
 
@@ -29,8 +30,8 @@ function App() {
         </Route>        
       
         <Route path='/user/:userID' element={<UserLayout/>}>
+         
           
-
         </Route>
       
 

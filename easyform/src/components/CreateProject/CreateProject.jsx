@@ -5,18 +5,30 @@ import { IoAdd } from "react-icons/io5";
 import Modal from '../Modal/Modal';
 
 import { ProjectContext } from '../../context/ProjectListContext';
+import { Link } from 'react-router-dom';
+import FormInfo from '../FormInfo/FormInfo';
 
 
 const CreateProject = () => {
     const [isModalOpen,setIsModalOpen]=useState(false)
     const [mountComponent,setMountComponent]=useState(false)
 
+    const [loadProjectData,setLoadProjectData]=useState({})
     const {projectData}=useContext(ProjectContext)
-    // console.log(projectData)
+    console.log(projectData)
     // const handleModalMount=()=>{
     //     setMountComnent(true)
     // }
+    // const userID=projectData[0].user_id
+    // var userID
+    // if(projectData != null){
+    //     console.log(projectData)
+    //     userID=projectData[0].user_id
+    //     console.log(userID)
 
+    
+    // }
+    
     const handleOpen=()=>{
         setIsModalOpen(true)
         setMountComponent(true)
@@ -26,11 +38,19 @@ const CreateProject = () => {
         setIsModalOpen(false)
     }
 
+    // console.log(loadProjectData)
+
+    const loadData= async (project)=>{
+        await setLoadProjectData(project)
+
+    }
+    
+
 
     return (
         <>
-            <main className='bg-white w-2/12 h-screen'>
-                <section>
+            <main >
+                <section className='bg-white w-2/12 h-screen float-left'>
                     <div className='flex justify-center items-center'> 
                         <button  onClick={handleOpen} className='add-btn w-4/5 py-2 my-3 flex justify-center'><IoAdd className='w-6 h-6 mx-1'/> Add New</button>
                     </div>
@@ -39,20 +59,25 @@ const CreateProject = () => {
                     }
 
                     <hr />
-                    {/* <div>
+                    <div className='project-data'>
                         {
                             projectData.map((project,index)=>(
-                                <ul>
-                                    <li key={index}>{project.projectname}</li>
-                                </ul>
+                                
+                                <li key={index}><button className='w-full' onClick={()=> loadData(project)}>{project.projectname}</button></li>
+                                // <Link to={`/user/${userID}/forminfo`}><li key={index}><button className='w-full'>{project.projectname}</button></li></Link>
+
+    
                             ))
                         }
-                    </div> */}
+                    </div>
 
 
 
+                </section>
+
+                <section >
                     
-
+                    <FormInfo loadProjectData={loadProjectData} />
 
                 </section>
             </main>
