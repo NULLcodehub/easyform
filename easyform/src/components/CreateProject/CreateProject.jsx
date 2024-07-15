@@ -15,7 +15,7 @@ const CreateProject = () => {
 
     const [loadProjectData,setLoadProjectData]=useState({})
     const {projectData}=useContext(ProjectContext)
-    console.log(projectData)
+    // console.log(projectData)
     // const handleModalMount=()=>{
     //     setMountComnent(true)
     // }
@@ -59,6 +59,9 @@ const CreateProject = () => {
                     }
 
                     <hr />
+
+
+
                     <div className='project-data'>
                         {
                             projectData.map((project,index)=>(
@@ -66,7 +69,6 @@ const CreateProject = () => {
                                 <li key={index}><button className='w-full' onClick={()=> loadData(project)}>{project.projectname}</button></li>
                                 // <Link to={`/user/${userID}/forminfo`}><li key={index}><button className='w-full'>{project.projectname}</button></li></Link>
 
-    
                             ))
                         }
                     </div>
