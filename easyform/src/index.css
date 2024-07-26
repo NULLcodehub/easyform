@@ -7,3 +7,17 @@
 body{
     background: #F9FAFB;
 }
+
+::-webkit-scrollbar{
+    width: 1px;
+}
+
+::-webkit-scrollbar-track{
+    background:none;
+    height: none;
+}
+
+::-webkit-scrollbar-thumb{
+    background:none;
+
+}
