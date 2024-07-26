@@ -9,9 +9,9 @@ import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism';
 const FormInfo =({loadProjectData}) => {
 
     const {projectname,_id,form_api_key}=loadProjectData
-    // console.log(_id)
+   
     // const [projectID,setProjectID]=useState(null)
-    // const [formData,setFormData]=useState(null)
+    const [formData,setFormData]=useState(null)
 
     const [visiableIntre,setVisiableIntre]=useState(true)
     const [visiableCode,setVisiableCode]=useState(false)
@@ -32,6 +32,7 @@ const FormInfo =({loadProjectData}) => {
     useEffect(()=>{
     
         const formDataFetch=async ()=>{
+            
             try {
                 const response=await axios.get(`http://localhost:4000/form/${_id}`)    
                     setFormData(response.data)
@@ -44,10 +45,10 @@ const FormInfo =({loadProjectData}) => {
        formDataFetch()
 
 
-    },[])
+    },[_id])
 
 
-    // console.log(formData)
+    console.log(formData)
 
 
 
@@ -75,7 +76,7 @@ const FormComponent = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://api.example.com/submit', formData);// repleace  api with your FormFlow api end point
+      const response = await axios.post('https://api.example.com/submit', formData);// repleace  api with your FormFlow api end-point
       console.log('Form submitted successfully:', response.data);
     } catch (error) {
       console.error('Error submitting the form:', error);
@@ -151,7 +152,7 @@ export default FormComponent;
 
 
                                 <div className='form mx-5 my-5 bg-white p-5 h-55vh rounded-lg'>
-                                    
+                                    {/* {formData._id} */}
                                 </div> 
                         </section>
 

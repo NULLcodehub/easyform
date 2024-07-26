@@ -3,8 +3,14 @@ const formDataController=async (req,res)=>{
     try {
         const {projectID}=req.params
 
-        console.log(projectID)
-        res.send(projectID)
+        if(projectID){
+            const formData=await FormSubmission.find({project_id:projectID})
+            res.send(formData)
+        }
+        else{
+            res.send("No data found from this project")
+        }
+       
         
     } catch (error) {
         res.send(error)
