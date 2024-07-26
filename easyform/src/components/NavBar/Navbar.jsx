@@ -6,7 +6,8 @@ import { AiOutlineLogout } from "react-icons/ai";
 import { AuthContext } from '../../context/AuthContext';
 
 const Navbar = () => {
-    const {isAuth,logout}=useContext(AuthContext)
+    const {isAuth,logout,tokenData}=useContext(AuthContext)
+    // console.log(tokenData)
     return (
         <>
             <main>
@@ -22,11 +23,15 @@ const Navbar = () => {
                                 <ul >
                                     <Link to='/signup'><button><li className='li-1'>Get Strated</li></button></Link>
                                     <Link to='/login'><button><li className='li-2'>Sign in</li></button></Link>
-                                </ul>}
+                                </ul>
+                            }
+
+                            
 
                             {isAuth &&
-                                <ul>
-                                   <li><button onClick={logout} className=''><AiOutlineLogout className='w-6 h-6'/></button></li> 
+                                <ul className=''>
+                                    <li className='font-semibold text-xl relative bottom-1'><button>{tokenData.username}</button></li>
+                                    <li><button onClick={logout} className=''><AiOutlineLogout className='w-6 h-6'/></button></li> 
                                 </ul>
                             }
                             

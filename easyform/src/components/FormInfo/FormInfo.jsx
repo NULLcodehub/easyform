@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './FormInfo.css'
 import { useLoaderData, useParams } from 'react-router-dom';
 import axios from 'axios';
 
-const FormInfo =  ({loadProjectData}) => {
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
-    // console.log(loadProjectData)
+const FormInfo =({loadProjectData}) => {
 
     const {projectname,_id,form_api_key}=loadProjectData
+    // console.log(_id)
+    // const [projectID,setProjectID]=useState(null)
+    // const [formData,setFormData]=useState(null)
 
     const [visiableIntre,setVisiableIntre]=useState(true)
     const [visiableCode,setVisiableCode]=useState(false)
@@ -21,6 +25,30 @@ const FormInfo =  ({loadProjectData}) => {
         setVisiableCode(true)
         setVisiableIntre(false)
     }
+
+    // setProjectID(_id)
+    // console.log(projectID)
+
+    useEffect(()=>{
+    
+        const formDataFetch=async ()=>{
+            try {
+                const response=await axios.get(`http://localhost:4000/form/${_id}`)    
+                    setFormData(response.data)
+                
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+       formDataFetch()
+
+
+    },[])
+
+
+    // console.log(formData)
+
 
 
     
@@ -46,16 +74,26 @@ const FormInfo =  ({loadProjectData}) => {
                                     <hr />
                                     <p className='py-4 api-link mt-3'>{`localhost:4000/${_id}/form/${form_api_key}`}</p>
                                 </div>
+
+
+                                <div className='form mx-5 my-5 bg-white p-5 h-55vh rounded-lg'>
+                                    
+                                </div> 
                         </section>
 
                 }
 
+
                 {
                     visiableCode &&
                     <>
-                        <div>
-                            code example
-                        </div>
+                        <section className=' h-80vh codeExampleMain'>
+                            <div className='bg-white mx-5 my-5 h-65vh rounded-lg p-7'>
+                                <SyntaxHighlighter language='javascript' style={okaidia} className='h-full'>
+                                    
+                                </SyntaxHighlighter>
+                            </div>
+                        </section>
                     
                     </>
 

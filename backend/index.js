@@ -9,7 +9,7 @@ const userRegister=require('./controllers/userRergisterController')
 const formControl=require('./controllers/formController')
 const projectController=require('./controllers/projectController')
 const projectDataController=require('./controllers/projectDataController')
-
+const formDataController=require('./controllers/formDataController')
 const app=express()
 
 connectDB()
@@ -34,6 +34,8 @@ app.post('/create/project',projectController)
 app.post('/:project_id_user/form/:form_api_key_url',formControl)
 
 app.get('/projects/:userID',projectDataController)
+
+app.get('/form/:projectID',formDataController)
 
 
 app.listen(PORT,()=>{

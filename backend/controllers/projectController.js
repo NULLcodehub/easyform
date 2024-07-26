@@ -39,8 +39,6 @@ const projectController=async (req,res)=>{
 
 
 
-    
-    
 }
 
 module.exports=projectController
