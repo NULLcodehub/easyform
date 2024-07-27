@@ -6,6 +6,8 @@ import axios from 'axios';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
+import FormDataTable from '../FormDataTable/FormDataTable';
+
 const FormInfo =({loadProjectData}) => {
 
     const {projectname,_id,form_api_key}=loadProjectData
@@ -152,7 +154,10 @@ export default FormComponent;
 
 
                                 <div className='form mx-5 my-5 bg-white p-5 h-55vh rounded-lg'>
-                                    {/* {formData._id} */}
+                                    
+                                    {formData && <FormDataTable formData={formData}/>}
+
+                                    {/* {formData && <h1>{formData._id}</h1>} */}
                                 </div> 
                         </section>
 

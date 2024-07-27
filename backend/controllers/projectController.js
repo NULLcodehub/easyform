@@ -25,7 +25,7 @@ const projectController=async (req,res)=>{
                 
                 await projectOk.save()
                 
-                const form=new FormSubmission({project_id:projectOk._id,projectname:projectOk.projectname,form_data:{}})
+                const form=new FormSubmission({project_id:projectOk._id,projectname:projectOk.projectname})
                 await form.save()
                 res.send(projectOk)
             }
