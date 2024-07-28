@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import './FormTable.css'
 
 const FormDataTable =({formData}) => {
 
 
-    console.log(formData)
+    
     const [data,setData]=useState('')
     const [columns,setColumns]=useState([])
     const [columnData,setColumnsData]=useState([])
@@ -40,8 +41,8 @@ const FormDataTable =({formData}) => {
     // },[formData])
     
 
-    console.log(columns)
-    console.log(columnData)
+    // console.log(columns)
+    // console.log(columnData)
 
     
 
@@ -51,21 +52,21 @@ const FormDataTable =({formData}) => {
 
             {data ? 
             
-                <div>
-                    <table>
-                        <thead>
-                            <tr>
+                <div className='overflow-x-auto'>
+                    <table className='w-full text-left divide-y'>
+                        <thead className='uppercase'>
+                            <tr className='p-2'>
                             {columns.map((col, index) => (
-                                <th key={index}>{col}</th>
+                                <th key={index} className='p-4'>{col}</th>
                             ))}
                             </tr>
                         </thead>
                         <tbody>
                         {columnData.map((item, rowIndex) => (
-                            <tr key={rowIndex}>
-                                <td>{rowIndex + 1}</td>
+                            <tr key={rowIndex} className=''>
+                                <td className='p-3'>{rowIndex + 1}</td>
                                     {columns.slice(1).map((col, colIndex) => (
-                                <td key={colIndex}>{item[col]}</td>
+                                <td key={colIndex} className='p-3'>{item[col]}</td>
                                 ))}
                             </tr>
             ))}
