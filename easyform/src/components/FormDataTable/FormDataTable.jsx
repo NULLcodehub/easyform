@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './FormTable.css'
+import {ClipLoader} from 'react-spinners'
 
 const FormDataTable =({formData}) => {
 
@@ -8,10 +9,12 @@ const FormDataTable =({formData}) => {
     const [data,setData]=useState('')
     const [columns,setColumns]=useState([])
     const [columnData,setColumnsData]=useState([])
+    const [loader,setLoader]=useState(false)
     // setData(formData)
     
 
     useEffect(() => {
+        setLoader(true)
         setData(formData);
         if (formData && formData.length > 0) {
             const form = formData[0].form_data;
@@ -21,6 +24,7 @@ const FormDataTable =({formData}) => {
                     const cols = ["no", ...Object.keys(nonEmptyData[0])];
                     setColumns(cols);
                     setColumnsData(nonEmptyData);
+                    
                 } else {
                     setColumns([]);
                     setColumnsData([]);
@@ -34,25 +38,18 @@ const FormDataTable =({formData}) => {
             setColumnsData([]);
         }
     }, [formData]);
-    // console.log(data[0].projectname)
-    
-    // useEffect(()=>{
-       
-    // },[formData])
-    
 
-    // console.log(columns)
-    // console.log(columnData)
-
-    
 
     return (
         <>
+            {/* {loader ? <ClipLoader size={20}/>: "no data yet"} */}
             {data && <h1 className='text-xl uppercase'>{data[0].projectname}</h1>}
+
+            
 
             {data ? 
             
-                <div className='overflow-x-auto'>
+                <div className='overflow-scroll'>
                     <table className='w-full text-left divide-y'>
                         <thead className='uppercase'>
                             <tr className='p-2'>

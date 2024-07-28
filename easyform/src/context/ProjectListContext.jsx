@@ -6,20 +6,23 @@ export const ProjectContext=createContext()
 
 export const ProjectConstextProvider=({children})=>{
     const [projectData,setProjectData]=useState([])
+    const [loader,setLoader]=useState(false)
 
     const {userID}=useParams()
     
     useEffect(()=>{
 
         const fetchData= async()=>{
-
+            setLoader(true)
             try {
 
                 const response=await axios.get(`http://localhost:4000/projects/${userID}`)
                 // console.log(response.data)
                 setProjectData(response.data)
+                setLoader(false)
             } catch (error) {
                 console.log(err)
+                setLoader(false)
             }
 
         }
@@ -40,7 +43,7 @@ export const ProjectConstextProvider=({children})=>{
     
 
     return (
-        <ProjectContext.Provider value={{addProjectData,projectData}}>
+        <ProjectContext.Provider value={{addProjectData,projectData,loader}}>
             {children}
         </ProjectContext.Provider>
     )

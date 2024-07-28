@@ -1,3 +1,6 @@
 tr:nth-child(even){
     background:  #F9FAFB;
 }
+td{
+    border-right: 1px solid rgb(235, 235, 235);
+}

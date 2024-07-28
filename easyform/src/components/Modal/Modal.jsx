@@ -7,6 +7,8 @@ import { MdOutlineCancel } from "react-icons/md";
 import { AuthContext } from '../../context/AuthContext';
 import { ProjectContext } from '../../context/ProjectListContext';
 
+import {CircleLoader} from 'react-spinners'
+
 import useDebounce from '../../Hooks/useDebounce';
 
 import axios from 'axios';
@@ -24,6 +26,8 @@ const Modal = ({isOpen,isClose}) => {
 
     const {addProjectData}=useContext(ProjectContext)
 
+    const [loader,setLoader]=useState(false)
+
     // console.log('from modal')
     if (!isOpen) return null;
 
@@ -32,7 +36,7 @@ const Modal = ({isOpen,isClose}) => {
     const handelProjectForm= async (e)=>{
         e.preventDefault()
         // console.log("from hhandel")
-
+        setLoader(true)
         try {
 
             if (projectNameDebounced && tokenData.id){
@@ -42,9 +46,8 @@ const Modal = ({isOpen,isClose}) => {
                     user_id:tokenData.id
 
                 })
-
+            
                 addProjectData(response.data)
-                console.log(response)
                 setProjectName('')
                 isClose()
             }
@@ -54,6 +57,7 @@ const Modal = ({isOpen,isClose}) => {
         } catch (error) {
             console.log(error)
             notify(error.response.data)
+            setLoader(false)
             
         }
     }
@@ -79,7 +83,7 @@ const Modal = ({isOpen,isClose}) => {
                         <input type="text"
                         value={projectName}
                         onChange={(e)=> setProjectName(e.target.value)}
-                    
+                        required
                         />
 
                      <div className='mt-5 w-full bg-green-950 rounded-xl h-32 modal-info'>

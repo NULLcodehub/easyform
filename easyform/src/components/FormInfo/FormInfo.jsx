@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './FormInfo.css'
-import { useLoaderData, useParams } from 'react-router-dom';
+import { useAsyncError, useLoaderData, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 import FormDataTable from '../FormDataTable/FormDataTable';
+import { DotLoader } from 'react-spinners';
 
 const FormInfo =({loadProjectData}) => {
 
@@ -17,6 +18,8 @@ const FormInfo =({loadProjectData}) => {
 
     const [visiableIntre,setVisiableIntre]=useState(true)
     const [visiableCode,setVisiableCode]=useState(false)
+
+    const [loader,setLoader]=useState(false)
 
     const visiablehandelerIntregration=()=>{
         setVisiableIntre(true)
@@ -34,13 +37,16 @@ const FormInfo =({loadProjectData}) => {
     useEffect(()=>{
     
         const formDataFetch=async ()=>{
-            
+
+          setLoader(true)  
             try {
                 const response=await axios.get(`http://localhost:4000/form/${_id}`)    
                     setFormData(response.data)
+                    setLoader(false)
                 
             } catch (error) {
                 console.log(error)
+                setLoader(false)
             }
         }
 
@@ -154,8 +160,10 @@ export default FormComponent;
 
 
                                 <div className='form mx-5 my-5 bg-white p-5 h-55vh rounded-lg'>
-                                    
+
+                                    {loader && <DotLoader size={30}/>} 
                                     {formData && <FormDataTable formData={formData}/>}
+                                    
 
                                     {/* {formData && <h1>{formData._id}</h1>} */}
                                 </div> 

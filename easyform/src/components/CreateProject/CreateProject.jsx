@@ -9,30 +9,21 @@ import { ProjectContext } from '../../context/ProjectListContext';
 import FormInfo from '../FormInfo/FormInfo';
 import IntroPage from '../IntroPage/IntroPage';
 
+import {ClipLoader,BarLoader} from 'react-spinners'
+
 
 const CreateProject = () => {
     const [isModalOpen,setIsModalOpen]=useState(false)
     const [mountComponent,setMountComponent]=useState(false)
 
     const [loadProjectData,setLoadProjectData]=useState({})
-    const {projectData}=useContext(ProjectContext)
+    const {projectData,loader}=useContext(ProjectContext)
 
 
     const [isData,setIsData]=useState(false)
-    // console.log(projectData)
-    // const handleModalMount=()=>{
-    //     setMountComnent(true)
-    // }
-    // const userID=projectData[0].user_id
-    // var userID
-    // if(projectData != null){
-    //     console.log(projectData)
-    //     userID=projectData[0].user_id
-    //     console.log(userID)
 
     
-    // }
-    
+
     const handleOpen=()=>{
         setIsModalOpen(true)
         setMountComponent(true)
@@ -45,9 +36,13 @@ const CreateProject = () => {
     // console.log(loadProjectData)
 
     const loadData= async (project)=>{
-        await setLoadProjectData(project)
+        
 
+        await setLoadProjectData(project)
+        
         setIsData(true)
+        
+        
 
     }
     
@@ -69,12 +64,11 @@ const CreateProject = () => {
 
 
                     <div className='project-data'>
-                        {
+                        { loader? <div className='w-full  flex justify-center'><BarLoader size={20} color='black'/></div>:
                             projectData.map((project,index)=>(
                                 
-                                <li key={index}><button className='w-full' onClick={()=> loadData(project)}>{project.projectname}</button></li>
-                                // <Link to={`/user/${userID}/forminfo`}><li key={index}><button className='w-full'>{project.projectname}</button></li></Link>
-
+                                <li key={index}><button className='w-full capitalize text-left pl-4' onClick={()=> loadData(project)}>{project.projectname}</button></li>
+                               
                             ))
                         }
                     </div>
@@ -84,7 +78,7 @@ const CreateProject = () => {
                 </section>
 
                 <section >
-                    {
+                    { 
                         !isData ? <IntroPage/>:<FormInfo loadProjectData={loadProjectData} />
 
                     }

@@ -2,12 +2,12 @@
     border-right: 0.5px solid rgb(232, 232, 232);
 }
 .add-btn{
-    background: #f6f3f3;
+    background: #fdfdfd;
     border:1px solid #20453A;
 }
 .project-data li{
     list-style: none;
-    border-bottom:1px solid rgb(193, 193, 193) ;
+    border-bottom:1px solid rgb(228, 228, 228) ;
     letter-spacing: 1px;
-    @apply px-3 py-2 text-center;
+    @apply px-3 py-3  ;
 }

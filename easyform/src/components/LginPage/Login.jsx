@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import useDebounce from '../../Hooks/useDebounce';
 import { AuthContext } from '../../context/AuthContext';
 
-
+import {ClipLoader} from 'react-spinners'
 
 const Login = () => {
 
@@ -19,6 +19,8 @@ const Login = () => {
     const passwordDebounce=useDebounce(password,500)
 
     const {login}=useContext(AuthContext)
+
+    const [loader,setLoader]=useState(false)
 
     // console.log(emailDebounce)
     // console.log(passwordDebounce)
@@ -30,7 +32,7 @@ const Login = () => {
     const formHandler =async(e)=>{
         e.preventDefault()
         
-        
+        setLoader(true)
         try {
             
             
@@ -54,6 +56,7 @@ const Login = () => {
                 // console.log('email and password required')
                 setEmail('')
                 setPassword('')
+                setLoader(false)
             }
 
             
@@ -63,6 +66,7 @@ const Login = () => {
             // console.log(error.response)
             setEmail('')
             setPassword('')
+            setLoader(false)
             
         }
 
@@ -122,7 +126,11 @@ const Login = () => {
                                         onChange={(e)=>setPassword(e.target.value)}
 
                                     />
-                                    <button className='signin-btn'>Sign in</button>
+                                    <button className='signin-btn'>
+                                        {
+                                            loader ? <ClipLoader size={20} color='white'/> : 'Sign in'
+                                        }
+                                        </button>
                                     <hr className='mt-2' />
                                     <Link to='/signup'><h1 className='text-left my-2 text-indigo-400'>create a new account</h1></Link>
                                
