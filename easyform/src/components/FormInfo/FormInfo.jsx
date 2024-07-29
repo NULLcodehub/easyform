@@ -84,7 +84,7 @@ const FormComponent = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://api.example.com/submit', formData);// repleace  api with your FormFlow api end-point
+      const response = await axios.post('https://api.example.com/submit', formData);// replace  api with your FormFlow api end-point
       console.log('Form submitted successfully:', response.data);
     } catch (error) {
       console.error('Error submitting the form:', error);
