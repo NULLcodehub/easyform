@@ -10,7 +10,8 @@
 
 .input-feild{
     @apply my-2 w-full h-12 rounded-md px-4;
-    border-bottom:2px solid #20453A;
+    /* border-bottom:2px solid #20453A; */
+    background: rgb(239, 239, 239);
     
 }
 
