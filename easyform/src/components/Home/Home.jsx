@@ -7,7 +7,7 @@ const Home = () => {
         <>
             <main className='mx-8 md:mx-20'>
 
-                <section>
+                <section className='md:h-screen'>
                     <div className=' mt-20'>
                         <center>
                             <h1 className='text-30px md:text-40px font-extrabold'>Receive form submissions directly to your email.</h1>
@@ -21,7 +21,7 @@ const Home = () => {
                     
                 </section>
 
-                <section className='my-20'>
+                <section className=' my-20 md:my-0'>
                     <div>
                         <center>
                             <h1 className='text-3xl md:text-5xl font-bold'>How it works</h1>

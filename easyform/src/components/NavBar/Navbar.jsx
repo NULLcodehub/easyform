@@ -1,12 +1,26 @@
-import React ,{useContext}from 'react';
+import React ,{useContext, useEffect, useState}from 'react';
 import './Navbar.css'
 import {Link} from 'react-router-dom'
 import { AiOutlineLogout } from "react-icons/ai";
-
+import { useParams } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 
 const Navbar = () => {
     const {isAuth,logout,tokenData}=useContext(AuthContext)
+    const [route,setRoute]=useState('')
+
+    const {userID}=useParams()
+
+    useEffect(()=>{
+            if(userID){
+                    setRoute(`/user/${userID}`)
+                }else{
+                    setRoute('/')
+                }
+    },[userID])
+    
+    
+
     // console.log(tokenData)
     return (
         <>
@@ -14,7 +28,7 @@ const Navbar = () => {
                 <nav>
                     <section className=' flex justify-between px-5 py-6'>
                         <div>
-                            <p>Form Flow</p>
+                            <Link to={route}><p>Form Flow</p></Link>
                         </div>
 
                         <div>

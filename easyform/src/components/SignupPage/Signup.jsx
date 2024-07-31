@@ -53,7 +53,7 @@ const Signup = () => {
                         
                     }
             }else{
-                notify('Email and Password required')
+                notify('Full name, Email and Password required')
                 // console.log('email and password required')
                 setEmail('')
                 setPassword('')
