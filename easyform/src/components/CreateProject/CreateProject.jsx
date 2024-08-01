@@ -10,6 +10,8 @@ import FormInfo from '../FormInfo/FormInfo';
 import IntroPage from '../IntroPage/IntroPage';
 
 import {ClipLoader,BarLoader} from 'react-spinners'
+import { HiOutlineTrash } from "react-icons/hi2";
+import axios from 'axios';
 
 
 const CreateProject = () => {
@@ -18,10 +20,11 @@ const CreateProject = () => {
 
     const [loadProjectData,setLoadProjectData]=useState({})
     const {projectData,loader}=useContext(ProjectContext)
-
-
     const [isData,setIsData]=useState(false)
 
+    const [hoverIndex,setHoverIndex]=useState(null)
+    const [delLoader,setDelLoader]=useState(false)
+    
     
 
     const handleOpen=()=>{
@@ -43,6 +46,27 @@ const CreateProject = () => {
         setIsData(true)
         
         
+
+    }
+    // console.log(projectData)
+
+    const deleteProject=async (projectID)=>{
+        // console.log(projectID)
+        setDelLoader(true)
+        try {
+
+
+            const response=await axios.delete(`http://localhost:4000/${projectID}`)
+            
+            if(response){
+                window.location.reload()
+            }
+
+        } catch (error) {
+            console.log(error)
+            setDelLoader(false)
+            
+        }
 
     }
     
@@ -67,7 +91,36 @@ const CreateProject = () => {
                         { loader? <div className='w-full  flex justify-center'><BarLoader size={20} color='black'/></div>:
                             projectData.map((project,index)=>(
                                 
-                                <li key={index}><button className='w-full capitalize text-left pl-4' onClick={()=> loadData(project)}>{project.projectname}</button></li>
+                                <li key={index} className=''
+                                    onMouseEnter={()=>setHoverIndex(index)}
+                                    onMouseLeave={()=>setHoverIndex(null)}
+                                >
+                                <button className='w-full capitalize text-left pl-4 flex justify-between' onClick={()=> loadData(project)}>{project.projectname}
+
+                                {
+                                    hoverIndex === index && (
+
+                                        <button 
+                                            onClick={(e)=>{
+                                                e.stopPropagation()
+                                                deleteProject(project._id)
+
+                                            }}
+                                        
+                                        
+                                        >{delLoader ? <ClipLoader size={10}/>:<HiOutlineTrash className='text-gray-300 hover:text-gray-700'/>}
+                                        </button>
+
+                                    )
+                                }
+                                 
+                                 
+                                </button>
+                                
+
+                                
+                                
+                                </li>
                                
                             ))
                         }
