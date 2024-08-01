@@ -2,10 +2,12 @@ import React from 'react';
 import codeImage from "../../../public/assets/images/landingImage.png"
 import addnew from '../../assets/add new.png'
 import apiendpintcode from '../../assets/apiendpoint.png'
+
+import { HiMiniArrowDown } from "react-icons/hi2";
 const Home = () => {
     return (
         <>
-            <main className='mx-8 md:mx-20'>
+            <main className='mx-8 md:mx-20 '>
 
                 <section className='md:h-screen'>
                     <div className=' mt-20'>
@@ -14,6 +16,10 @@ const Home = () => {
                             <p className='mt-3 md:text-xl text-gray-600'>Write your form code,connect to our api, and we'll handle the process</p>
                             <div className='my-5 rounded-md'>
                                 <img src={codeImage} alt="code-snepit" className='rounded-xl md:w-6/12'  loading='lazy' />
+                            </div>
+
+                            <div className='md:block hidden mt-40'>
+                                <HiMiniArrowDown className='w-10 h-10 text-gray-400 animate-bounce  '/>
                             </div>
                             
                         </center>
