@@ -14,13 +14,13 @@ const sendEmail = async (recipientEmail,formData,projectname) => {
     secure:false,
     auth: {
       user: process.env.GMAIL_EMAIL,
-      pass: "",
+      pass:process.env.GMAIL_APP_PASSWORD,
     },
   });
 
   // console.log(formatDataToString(formData))
   let mailOptions = {
-    from: 'Team FormFlow <souravish47@outlook.com>',
+    from: 'Team FormFlow <projectflowteam@outlook.com>',
     to: recipientEmail,
     subject:projectname.toUpperCase(),
     text:`${formatDataToString(formData)}`

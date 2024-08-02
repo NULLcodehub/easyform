@@ -1,9 +1,23 @@
+/* body{
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+
+} */
 .div-right{
-    background: #20453A;
+    background: #DC2626;
+    background-image: url("../../assets/animation.gif");
+    background-blend-mode:color-burn;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    
 }
 .div-right-in-text{
     /* border: 1px solid #cad400; */
-    @apply rounded-md h-32 w-8/12 my-4 p-5 text-left;
+    @apply rounded-md h-32 w-8/12 my-4 p-5 text-left ;
+    background: #c001016b;
     
     
 }
@@ -28,16 +42,16 @@
 
 
 .signin-btn{
-    background: #20453A;
+    background: #DC2626;
     @apply py-2 px-4 my-2 w-24 rounded-md text-white;
 }
 
-.left-section p{
-  font-family: "Playwrite FR Trad", cursive;
-  font-optical-sizing: auto;
-  font-weight: 800;
-  font-style: normal;
-  color: #20453A;
+.left-section p span{
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    color: black;
   /* text-shadow: 
   1px 1px 0px black, 
   -1px 1px 0px black,

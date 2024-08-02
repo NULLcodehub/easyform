@@ -110,7 +110,7 @@ const Signup = () => {
 
                     <div className='flex justify-center items-center h-screen w-full'>
                         <div className='w-9/12 md:w-7/12 '>
-                        <p className='text-xl md:text-40px text-center mb-6 '>Form Flow</p>
+                        <p className='text-xl md:text-40px text-left mb-6 '>Sign up for <span>Form Flow</span></p>
                             <form action="" onSubmit={formHandler}>
                                
                                     <input type="text"

@@ -89,8 +89,8 @@ const Login = () => {
 
                                 </div>
                                 <div className="div-right-in-text">
-                                    <h1>Get your website form data at you mail</h1>
-                                    <p>No more intregration of backend for you small business web from .Get your massages directly at your business mail</p>
+                                    <h1>Get your website form data at your mail</h1>
+                                    <p>No more intregration of backend for your small business web form .Get your massages directly at your business mail</p>
                                 </div>
                                 <div className="div-right-in-text">
                                     <h1>All submissions in one place</h1>
@@ -108,7 +108,7 @@ const Login = () => {
 
                     <div className='flex justify-center items-center h-screen w-full'>
                         <div className='w-9/12 md:w-7/12 '>
-                        <p className='text-xl md:text-40px text-center mb-6 '>Form Flow</p>
+                        <p className='text-xl md:text-40px text-left mb-6 '>Sign in to <span >Form Flow</span></p>
                             <form action="" onSubmit={formHandler}>
                                
                                     <input type="text"

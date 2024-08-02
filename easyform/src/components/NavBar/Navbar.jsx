@@ -28,7 +28,7 @@ const Navbar = () => {
                 <nav>
                     <section className=' flex justify-between px-5 py-6'>
                         <div>
-                            <Link to={route}><p>Form Flow</p></Link>
+                            <Link to={route}><p className='text-2xl'>Form Flow</p></Link>
                         </div>
 
                         <div>

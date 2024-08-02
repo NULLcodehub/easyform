@@ -12,23 +12,23 @@ nav li{
     
 }
 .li-1{
-    background: #20453A;
+    background: #DC2626;
     color: white;
     
 }
 .li-2{
-    border:2px solid #20453A;
-    background:#23433985;
-    color: #20453A;
+    border:2px solid #DC2626;
+    background:#dc26268b;
+    color: #DC2626;
     
     
 }
 nav p{
-    font-family: "Playwrite FR Trad", cursive;
+    font-family: "Josefin Sans", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 700;
+    font-weight: 800;
     font-style: normal;
-    color: #20453A;
+    color: black;
     /* text-shadow: 
     0.5px 0.5px 0px black, 
     -0.5px 0.5px 0px black,
