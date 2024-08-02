@@ -6,7 +6,7 @@ const formatDataToString=(formData)=>{
   return Object.entries(formData).map(([key,value])=>`${key}: ${value}`).join('\n')
 }
 
-const sendEmail = async (recipientEmail,formData) => {
+const sendEmail = async (recipientEmail,formData,projectname) => {
   console.log("mail.js",formData)
   let transporter = nodemailer.createTransport({
     host: 'smtp-mail.outlook.com',
@@ -20,9 +20,9 @@ const sendEmail = async (recipientEmail,formData) => {
 
   // console.log(formatDataToString(formData))
   let mailOptions = {
-    from: 'easy form for you <souravish47@outlook.com>',
+    from: 'Team FormFlow <souravish47@outlook.com>',
     to: recipientEmail,
-    subject:'easy form',
+    subject:projectname.toUpperCase(),
     text:`${formatDataToString(formData)}`
   };
 

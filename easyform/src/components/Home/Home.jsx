@@ -3,11 +3,15 @@ import codeImage from "../../../public/assets/images/landingImage.png"
 import addnew from '../../assets/add new.png'
 import apiendpintcode from '../../assets/apiendpoint.png'
 
+import './Home.css'
+
 import { HiMiniArrowDown } from "react-icons/hi2";
 const Home = () => {
     return (
         <>
-            <main className='mx-8 md:mx-20 '>
+            <section className='home-section'>
+            </section>
+            <main className='mx-8 md:mx-20 home-section2 '>
 
                 <section className='md:h-screen'>
                     <div className=' mt-20'>

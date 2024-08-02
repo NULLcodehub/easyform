@@ -18,7 +18,7 @@ const formControl=async (req,res)=>{
 
     try {
 
-        const {_id,form_api_key,user_id}=await Project.findById(project_id_user)
+        const {_id,form_api_key,user_id,projectname}=await Project.findById(project_id_user)
         
         console.log(user_id)
         
@@ -37,7 +37,7 @@ const formControl=async (req,res)=>{
                     submmitOk.form_data.push(formData)
                     await submmitOk.save()
                     const data= await submmitOk.form_data.at(-1)
-                    sendEmail(email,data)
+                    sendEmail(email,data,projectname)
                     console.log(submmitOk.form_data.at(-1))
                     res.send(submmitOk)
                 }
