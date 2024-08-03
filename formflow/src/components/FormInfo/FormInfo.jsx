@@ -155,7 +155,7 @@ export default FormComponent;
                                 <div className='px-5 py-3 mx-5 form-api rounded-lg' >
                                     <p className='py-2'>Form Endpoint</p>
                                     <hr />
-                                    <p className='py-4 api-link mt-3'>{`localhost:4000/${_id}/form/${form_api_key}`}</p>
+                                    <p className='py-4 api-link mt-3'>{`https://formflow-api.vercel.app/${_id}/form/${form_api_key}`}</p>
                                 </div>
 
 

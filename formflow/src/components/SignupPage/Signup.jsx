@@ -91,7 +91,7 @@ const Signup = () => {
 
                                 </div>
                                 <div className="div-right-in-text">
-                                    <h1>Get your website form data at you mail</h1>
+                                    <h1>Get your website form data at your mail</h1>
                                     <p>No more intregration of backend for you small business web from .Get your massages directly at your business mail</p>
                                 </div>
                                 <div className="div-right-in-text">
