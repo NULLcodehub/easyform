@@ -37,7 +37,7 @@ const Signup = () => {
             
             
             if(emailDebounce || passwordDebounce){
-                const response=await axios.post(`http://localhost:4000/register`,{
+                const response=await axios.post(`https://formflow-api.vercel.app/register`,{
                         username:usernameDebounce,
                         email:emailDebounce,
                         password:passwordDebounce

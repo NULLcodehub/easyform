@@ -56,7 +56,7 @@ const CreateProject = () => {
         try {
 
 
-            const response=await axios.delete(`http://localhost:4000/${projectID}`)
+            const response=await axios.delete(`https://formflow-api.vercel.app/${projectID}`)
             
             if(response){
                 window.location.reload()

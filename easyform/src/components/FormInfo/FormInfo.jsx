@@ -40,7 +40,7 @@ const FormInfo =({loadProjectData}) => {
 
           setLoader(true)  
             try {
-                const response=await axios.get(`http://localhost:4000/form/${_id}`)    
+                const response=await axios.get(`https://formflow-api.vercel.app/form/${_id}`)    
                     setFormData(response.data)
                     setLoader(false)
                 
