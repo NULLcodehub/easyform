@@ -7,7 +7,7 @@ const formatDataToString=(formData)=>{
 }
 
 const sendEmail = async (recipientEmail,formData,projectname) => {
-  console.log("mail.js",formData)
+  // console.log("mail.js",formData)
   let transporter = nodemailer.createTransport({
     host: 'smtp-mail.outlook.com',
     port:587,
