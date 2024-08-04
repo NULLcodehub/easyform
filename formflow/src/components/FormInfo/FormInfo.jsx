@@ -143,8 +143,8 @@ export default FormComponent;
                     <h1 className='text-2xl font-semibold uppercase'>{projectname}</h1>
 
                     <div className=' flex justify-normal items-end mt-6 pb-2  gap-6'>
-                        <button onClick={visiablehandelerIntregration} className={`${visiableIntre && 'border-b-2 border-green-700'} py-2 px-2`} >Integraion</button>
-                        <button onClick={visiablehandelerCodeExample} className={`${visiableCode && 'border-b-2  border-green-700'} py-2 px-2`}>Code example</button>
+                        <button onClick={visiablehandelerIntregration} className={`${visiableIntre && 'border-b-2 border-red-500'} py-2 px-2`} >Integraion</button>
+                        <button onClick={visiablehandelerCodeExample} className={`${visiableCode && 'border-b-2  border-red-500'} py-2 px-2`}>Code example</button>
                     </div>
                 </section>
 
@@ -159,7 +159,7 @@ export default FormComponent;
                                 </div>
 
 
-                                <div className='form mx-5 my-5 bg-white p-5 h-55vh rounded-lg'>
+                                <div className='form mx-5 my-5 bg-white p-5 h-55vh rounded-lg overflow-scroll'>
 
                                     {loader && <DotLoader size={30}/>} 
                                     {formData && <FormDataTable formData={formData}/>}

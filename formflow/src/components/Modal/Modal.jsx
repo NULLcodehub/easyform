@@ -86,7 +86,8 @@ const Modal = ({isOpen,isClose}) => {
                         required
                         />
 
-                     <div className='mt-5 w-full bg-green-950 rounded-xl h-32 modal-info'>
+                     <div className='mt-5 w-full rounded-xl p-10 modal-info text-white text-lg'>
+                     The email address used during signup will be automatically associated with your project. All messages sent through the API will be directly delivered to this email.
 
 
                     </div>
