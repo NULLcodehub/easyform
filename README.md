@@ -42,6 +42,4 @@ The project is live! You can access it [here]([http://your-live-demo-link.com](h
 
 FormFlow uses bcrypt for password hashing and JWT for secure authentication to ensure user data is protected.
 
-## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
