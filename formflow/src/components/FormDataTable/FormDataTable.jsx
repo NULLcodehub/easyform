@@ -43,7 +43,7 @@ const FormDataTable =({formData}) => {
     return (
         <>
             {/* {loader ? <ClipLoader size={20}/>: "no data yet"} */}
-            {data && <h1 className='text-xl uppercase'>{data[0].projectname}</h1>}
+            {data && <h1 className='text-xl uppercase'>{data[0].projectname} <span className='text-xs font-bold'>submissions</span></h1>}
 
             
 
